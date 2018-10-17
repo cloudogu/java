@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.7-3
+FROM registry.cloudogu.com/official/base:3.7-4
 MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
 
 # build arguments, passed from Makefile
