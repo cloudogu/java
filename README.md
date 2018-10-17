@@ -1,3 +1,6 @@
+[![GitHub license](https://img.shields.io/github/license/cloudogu/java.svg)](https://github.com/cloudogu/java/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/cloudogu/java.svg)](https://github.com/cloudogu/java/releases)
+
 # dogu java docker image
 
 official/java is based on official/base, thus inheriting doguctl, bash and other tools.
