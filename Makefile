@@ -4,9 +4,9 @@
 # - https://bugs.alpinelinux.org/issues/7372
 # - https://github.com/jenkinsci/docker/issues/508
 
-JAVA_VERSION="8u151"
+JAVA_VERSION="8u171"
 CHANGE_COUNTER="4"
-JAVA_ALPINE_VERSION="8.151.12-r0"
+JAVA_ALPINE_VERSION="8.171.11-r0"
 IMAGE_NAME="registry.cloudogu.com/official/java"
 IMAGE_TAG="$(JAVA_VERSION)-$(CHANGE_COUNTER)"
 
