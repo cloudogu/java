@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
 
 DIRECTORY="/etc/ssl"
 STORE="${1:-$DIRECTORY/truststore.jks}"
@@ -7,7 +10,7 @@ CERTALIAS="ces"
 
 function create(){
   # create ssl directory
-  if [ ! -d "$DIRECTORY" ]; then
+  if [[ ! -d "$DIRECTORY" ]]; then
     mkdir "$DIRECTORY"
   fi
 
