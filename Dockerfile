@@ -1,5 +1,5 @@
-FROM registry.cloudogu.com/official/base:3.7-4
-MAINTAINER Sebastian Sdorra <sebastian.sdorra@cloudogu.com>
+FROM registry.cloudogu.com/official/base:3.9.4-1
+LABEL maintainer="sebastian.sdorra@cloudogu.com"
 
 # build arguments, passed from Makefile
 ARG JAVA_ALPINE_VERSION
