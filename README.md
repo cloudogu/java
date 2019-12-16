@@ -11,7 +11,7 @@ official/java is based on official/base, thus inheriting doguctl, bash and other
 
 example
 
-    docker build -t official/java:11.0.4-1 .
+    docker build -t official/java:11.0.4-2 .
 
 
 NOTE: _java major version_ and _java minor/update version_ see ENV statement in Dockerfile
