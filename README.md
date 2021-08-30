@@ -7,11 +7,7 @@ official/java is based on official/base, thus inheriting doguctl, bash and other
 
 ## how to build
 
-    docker build -t official/java:<java version>-<cloudogu revision> .
-
-example
-
-    docker build -t official/java:11.0.4-2 .
+    make build
 
 
 NOTE: _java major version_ and _java minor/update version_ see ENV statement in Dockerfile
