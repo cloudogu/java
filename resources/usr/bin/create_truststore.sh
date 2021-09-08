@@ -4,7 +4,7 @@ set -o nounset
 set -o pipefail
 
 DIRECTORY="/etc/ssl"
-STORE="${1:-$DIRECTORY/truststore.jks}"
+STORE=""
 STOREPASS="changeit"
 CERTALIAS="ces"
 
@@ -28,5 +28,13 @@ function create(){
   rm -f "${CERTIFICATE}"
 }
 
-create 2> /dev/null
-echo "-Djavax.net.ssl.trustStore=${STORE} -Djavax.net.ssl.trustStorePassword=${STOREPASS}"
+function run_main() {
+  STORE="${1:-$DIRECTORY/truststore.jks}"
+  create 2> /dev/null
+  echo "-Djavax.net.ssl.trustStore=${STORE} -Djavax.net.ssl.trustStorePassword=${STOREPASS}"
+}
+
+# make the script only run when executed, not when sourced from bats tests)
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  run_main "$@"
+fi
