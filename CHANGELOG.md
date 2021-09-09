@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add support for additional certificates (#4)
    - see the [operations docs](docs/operations.en.md) for more information
+- Update base image to 3.14.2-2
+- Update to OpenJDK 8.282.08-r1
 
 ## [11.0.11-1]
 
