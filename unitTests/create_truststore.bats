@@ -43,7 +43,7 @@ teardown() {
   assert_line "-Djavax.net.ssl.trustStore=${mockTruststore} -Djavax.net.ssl.trustStorePassword=changeit"
   assert_equal "$(mock_get_call_num "${doguctl}")" "2"
   assert_equal "$(mock_get_call_args "${doguctl}" "1")" "config --global certificate/server.crt"
-  assert_equal "$(mock_get_call_args "${doguctl}" "2")" "config --default  --global certificate/additional/toc"
+  assert_equal "$(mock_get_call_args "${doguctl}" "2")" "config --default NV --global certificate/additional/toc"
   assert_equal "$(mock_get_call_num "${keytool}")" "1"
   actualCall="$(mock_get_call_args "${keytool}" "1")"
   echo "$actualCall" | grep -E -- "-keystore ${mockTruststore} -storepass changeit -alias ces -import -file .* -noprompt"
@@ -72,7 +72,7 @@ teardown() {
   assert_file_contains "${mockTruststore}" "CERT FOR CONTENT2"
   assert_line "-Djavax.net.ssl.trustStore=${mockTruststore} -Djavax.net.ssl.trustStorePassword=changeit"
   assert_equal "$(mock_get_call_args "${doguctl}" "1")" "config --global certificate/server.crt"
-  assert_equal "$(mock_get_call_args "${doguctl}" "2")" "config --default  --global certificate/additional/toc"
+  assert_equal "$(mock_get_call_args "${doguctl}" "2")" "config --default NV --global certificate/additional/toc"
   assert_equal "$(mock_get_call_args "${doguctl}" "3")" "config --global certificate/additional/toc"
   assert_equal "$(mock_get_call_args "${doguctl}" "4")" "config --global certificate/additional/alias1"
   assert_equal "$(mock_get_call_args "${doguctl}" "5")" "config --global certificate/additional/alias2"
@@ -100,7 +100,7 @@ teardown() {
   assert_file_empty "${mockTruststore}"
   refute_output --regex ".*"
   assert_equal "$(mock_get_call_num "${doguctl}")" "1"
-  assert_equal "$(mock_get_call_args "${doguctl}" "1")" "config --default  --global certificate/additional/toc"
+  assert_equal "$(mock_get_call_args "${doguctl}" "1")" "config --default NV --global certificate/additional/toc"
 }
 
 
@@ -126,7 +126,7 @@ teardown() {
   assert_file_contains "${mockTruststore}" "CONTENT2"
   refute_output --regex ".*"
   assert_equal "$(mock_get_call_num "${doguctl}")" "4"
-  assert_equal "$(mock_get_call_args "${doguctl}" "1")" "config --default  --global certificate/additional/toc"
+  assert_equal "$(mock_get_call_args "${doguctl}" "1")" "config --default NV --global certificate/additional/toc"
   assert_equal "$(mock_get_call_args "${doguctl}" "2")" "config --global certificate/additional/toc"
   assert_equal "$(mock_get_call_args "${doguctl}" "3")" "config --global certificate/additional/alias1"
   assert_equal "$(mock_get_call_args "${doguctl}" "4")" "config --global certificate/additional/alias2"
