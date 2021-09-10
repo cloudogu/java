@@ -10,7 +10,7 @@ ADDITIONAL_CERTIFICATES_DIR_KEY="certificate/additional"
 ADDITIONAL_CERTIFICATES_TOC="${ADDITIONAL_CERTIFICATES_DIR_KEY}/toc"
 
 function existAdditionalCertificates() {
-  additionalCertTOC="$(doguctl config  --default "" --global "${ADDITIONAL_CERTIFICATES_TOC}")"
+  additionalCertTOC="$(doguctl config  --default NV --global "${ADDITIONAL_CERTIFICATES_TOC}")"
 
   if [[ -z "${additionalCertTOC// }" ]] ; then
     return 1
