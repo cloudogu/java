@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add support for additional certificates (#4)
-   - see the [operations docs](docs/operations.en.md) for more information
+   - see the [operations docs](docs/operations_en.md) for more information
 
 ## [11.0.11-1]
 
