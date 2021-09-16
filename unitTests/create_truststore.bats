@@ -28,7 +28,7 @@ setup() {
 teardown() {
   rm "${BATS_TMPDIR}/doguctl"
   rm "${BATS_TMPDIR}/keytool"
-  mockTruststore="$(mktemp)"
+  rm "${mockTruststore}"
 }
 
 @test "running create_truststore.sh with store parameter should return a Java string with the correct truststore" {
