@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Update java 11 version to 11.2.12
+
+
 ## [11.0.11-2]
 
 ### Added
