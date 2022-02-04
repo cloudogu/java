@@ -1,4 +1,4 @@
-FROM registry.cloudogu.com/official/base:3.14.2-2
+FROM registry.cloudogu.com/official/base:3.14.3-1
 LABEL maintainer="hello@cloudogu.com"
 
 # build arguments, passed from Makefile
