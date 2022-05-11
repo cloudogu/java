@@ -15,7 +15,8 @@ ENV \
 
 RUN set -x \
  # install java JAVA_ALPINE_VERSION is define in Makefile
- && apk add --no-cache openjdk8="${JAVA_ALPINE_VERSION}"
+ && apk add --no-cache openjdk8="${JAVA_ALPINE_VERSION}" \
+ && apk update && apk upgrade
 
 # copy resources
 COPY resources/ /
