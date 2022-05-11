@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8u302-3] - 2022-05-11
+### Added
+- apk update and upgrade to Dockerfile
+
 ## [8u302-2] - 2022-05-11
 ### Changed
 - Upgrade to base image 3.15.3-1
