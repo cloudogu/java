@@ -15,6 +15,7 @@ ENV \
 
 RUN set -x \
  # install java JAVA_ALPINE_VERSION is define in Makefile
+ && apk update && apk upgrade \
  && apk add --no-cache openjdk11="${JAVA_ALPINE_VERSION}"
 
 # copy resources
