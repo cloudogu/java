@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8u362-9] - 2022-05-11
+### Changed
+- Upgrade to base image 3.17.3-1
+- Upgrade to OpenJDK 8.362.09-r1
+
 ## [8u302-3] - 2022-05-11
 ### Added
 - apk update and upgrade to Dockerfile
