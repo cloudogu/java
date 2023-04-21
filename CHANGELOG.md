@@ -5,11 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-## [11.0.14-3] - 2022-04-21
+## [17.0.6-2] - 2022-04-21
 ### Changed
-- Upgrade to base image 3.17.3-1
+- Upgrade to base image 3.17.3-2
 
-## [11.0.14-3] - 2023-03-23
+## [17.0.6-1] - 2022-04-21
 ### Changed
 - Upgrade to base image 3.17.1-1
 - Upgrade to OpenJDK 17.0.6
