@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [11.0.18-1] - 2023-04-21
+### Changed
+- Upgrade to OpenJDK 11.0.18 (#16)
+- Update base image to 3.17.3-2 (#17)
+
 ## [11.0.14-3] - 2022-04-04
 ### Changed
 - Upgrade to base image 3.15.3-1
