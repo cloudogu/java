@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [8u362-9] - 2023-04-21
+## [8u362-1] - 2023-04-21
 ### Changed
 - Upgrade to base image 3.17.3-2
 - Upgrade to OpenJDK 8.362.09-r1

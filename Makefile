@@ -1,4 +1,4 @@
-JAVA_VERSION="8u302"
+JAVA_VERSION="8u362"
 CHANGE_COUNTER="3"
 JAVA_ALPINE_VERSION="8.362.09-r1"
 IMAGE_NAME="registry.cloudogu.com/official/java"
