@@ -1,4 +1,4 @@
-ARG BASE_VER=3.18.6-1
+ARG BASE_VER=3.19.1-1
 
 FROM registry.cloudogu.com/official/base:${BASE_VER}
 LABEL maintainer="hello@cloudogu.com"
@@ -11,13 +11,13 @@ ENV \
   # default to utf-8 encoding
   LANG="C.UTF-8" \
   # java home
-  JAVA_HOME="/usr/lib/jvm/java-17-openjdk" \
+  JAVA_HOME="/usr/lib/jvm/java-21-openjdk" \
   # add java binaries to path
-  PATH="$PATH:/usr/lib/jvm/java-17-openjdk/jre/bin:/usr/lib/jvm/java-17-openjdk/bin"
+  PATH="$PATH:/usr/lib/jvm/java-21-openjdk/jre/bin:/usr/lib/jvm/java-21-openjdk/bin"
 
 RUN set -x \
  # install java JAVA_ALPINE_VERSION is define in Makefile
- && apk add --no-cache openjdk17="${JAVA_ALPINE_VERSION}"
+ && apk add --no-cache openjdk21="${JAVA_ALPINE_VERSION}"
 
 # copy resources
 COPY resources/ /
