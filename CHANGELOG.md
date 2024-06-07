@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [11.0.23-1] - 2023-06-07
 ### Changed
 - Upgrade to base image 3.19.1-2 (#22)
+  - Contains doguctl v0.10.0
 - Upgrade to OpenJDK 11.0.23 (#22)
 
 ## [11.0.20-1] - 2023-09-20
