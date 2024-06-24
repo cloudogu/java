@@ -4,7 +4,7 @@ JAVA_ALPINE_VERSION="8.402.06-r0"
 IMAGE_NAME="registry.cloudogu.com/official/java"
 IMAGE_TAG="$(JAVA_VERSION)-$(CHANGE_COUNTER)"
 
-MAKEFILES_VERSION=4.5.0
+MAKEFILES_VERSION=9.0.5
 
 default: build
 
