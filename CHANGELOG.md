@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade to base image 3.20.1-1 (#41)
     - Contains doguctl v0.11.0
+- Update makefiles to 9.0.5
 
 ## [11.0.23-1] - 2024-06-07
 ### Changed
