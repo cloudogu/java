@@ -1,4 +1,4 @@
-ARG BASE_VER=3.19.1-2
+ARG BASE_VER=3.20.1-1
 
 FROM registry.cloudogu.com/official/base:${BASE_VER}
 LABEL maintainer="hello@cloudogu.com"
