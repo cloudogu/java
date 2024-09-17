@@ -4,7 +4,7 @@ JAVA_ALPINE_VERSION="11.0.24_p8-r0"
 IMAGE_NAME="registry.cloudogu.com/official/java"
 IMAGE_TAG="$(JAVA_VERSION)-$(CHANGE_COUNTER)"
 
-MAKEFILES_VERSION=9.0.5
+MAKEFILES_VERSION=9.2.1
 
 default: build
 
