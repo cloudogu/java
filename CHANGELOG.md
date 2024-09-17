@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- [#58] Update Base Image to v3.20.3-1
+- [#56] Update Base Image to v3.20.3-1
 
 ## [8u402-4] - 2024-08-06
 ### Changed
