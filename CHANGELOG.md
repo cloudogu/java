@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- [#75] Upgrade base image to 3.21.0-1
+- [#75] Upgrade java to 11.0.25_p9-r0
+
+### Security
+- [#75] Fixes CVE-2024-45337
 
 ## [11.0.24-3] - 2024-09-18
 ### Changed
