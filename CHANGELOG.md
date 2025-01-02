@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [8u432-1] - 2025-01-02
 ### Changed
 - [#75] Upgrade base image to 3.21.0-1
 - [#75] Upgrade java to 8.432.06-r0
