@@ -1,4 +1,4 @@
-ARG BASE_VER=3.20.3-3
+ARG BASE_VER=3.21.0-1
 
 FROM registry.cloudogu.com/official/base:${BASE_VER}
 LABEL maintainer="hello@cloudogu.com"
@@ -6,7 +6,6 @@ LABEL maintainer="hello@cloudogu.com"
 # build arguments, passed from Makefile
 ARG JAVA_ALPINE_VERSION
 
-# environment variables
 ENV \
   # default to utf-8 encoding
   LANG="C.UTF-8" \
@@ -19,5 +18,4 @@ RUN set -x \
  # install java JAVA_ALPINE_VERSION is define in Makefile
  && apk add --no-cache openjdk21="${JAVA_ALPINE_VERSION}"
 
-# copy resources
 COPY resources/ /
