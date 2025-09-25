@@ -1,9 +1,10 @@
 # build arguments, defined in Makefile
 ARG BASE_IMAGE_VERSION
-ARG JAVA_ALPINE_VERSION
 
 FROM registry.cloudogu.com/official/base:${BASE_IMAGE_VERSION}
 LABEL maintainer="hello@cloudogu.com"
+
+ARG JAVA_ALPINE_VERSION
 
 ENV \
   # default to utf-8 encoding
