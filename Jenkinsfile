@@ -40,7 +40,14 @@ timestamps {
         }
 
         stage('Build') {
-            sh "make build"
+            withCredentials([[$class          : 'UsernamePasswordMultiBinding',
+                              credentialsId   : "cesmarvin-setup",
+                              usernameVariable: 'TOKEN_ID',
+                              passwordVariable: 'TOKEN_SECRET']]) {
+                sh "docker login -u ${escapeToken(env.TOKEN_ID)} -p ${escapeToken(env.TOKEN_SECRET)} registry.cloudogu.com"
+                sh "make build"
+                sh "docker logout registry.cloudogu.com"
+            }
         }
 
         stage('Test') {
