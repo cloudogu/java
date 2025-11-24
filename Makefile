@@ -1,6 +1,6 @@
 JAVA_VERSION=21.0.9
 CHANGE_COUNTER=1
-BASE_IMAGE_VERSION=3.21.0-1
+BASE_IMAGE_VERSION=3.22.0-5
 JAVA_ALPINE_VERSION=21.0.9_p10-r0
 IMAGE_NAME=registry.cloudogu.com/official/java
 IMAGE_NAME_PRERELEASE=registry.cloudogu.com/prerelease_official/java
