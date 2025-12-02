@@ -9,12 +9,12 @@ MAKEFILES_VERSION=10.4.0
 
 default: build
 
-TESTS_DIR=./unitTests
-
 include build/make/variables.mk
 include build/make/self-update.mk
 include build/make/clean.mk
 include build/make/bats.mk
+
+TESTS_DIR=./unitTests
 
 .PHONY: info
 info:
