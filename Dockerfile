@@ -1,9 +1,9 @@
-ARG BASE_VER=3.21.0-1
+# build arguments, defined in Makefile
+ARG BASE_IMAGE_VERSION
 
-FROM registry.cloudogu.com/official/base:${BASE_VER}
+FROM registry.cloudogu.com/official/base:${BASE_IMAGE_VERSION}
 LABEL maintainer="hello@cloudogu.com"
 
-# build arguments, passed from Makefile
 ARG JAVA_ALPINE_VERSION
 
 ENV \
@@ -15,7 +15,6 @@ ENV \
   PATH="$PATH:/usr/lib/jvm/java-17-openjdk/jre/bin:/usr/lib/jvm/java-17-openjdk/bin"
 
 RUN set -x \
- # install java JAVA_ALPINE_VERSION is define in Makefile
  && apk add --no-cache openjdk17="${JAVA_ALPINE_VERSION}"
 
 COPY resources/ /
