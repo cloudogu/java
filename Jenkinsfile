@@ -82,7 +82,7 @@ timestamps {
                 if (!git.originTagExists(currentTag)) {
                     final String imageTag = "v${imageVersion}"
                     println("Creating missing tag: ${imageTag}")
-                    git.setTag(imageTag, "Release ${imageVersion}", 'sos-automat', 'sos@cloudogu.com')
+                    git.setTag(imageTag, "Release ${imageTag}", 'sos-automat', 'sos@cloudogu.com')
                     git.push(imageTag)
                 }
             }
