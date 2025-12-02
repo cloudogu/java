@@ -1,20 +1,20 @@
 [![GitHub license](https://img.shields.io/github/license/cloudogu/java.svg)](https://github.com/cloudogu/java/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/cloudogu/java.svg)](https://github.com/cloudogu/java/releases)
 
-# dogu java docker image
+# Base Dogu Java image
 
-official/java is based on official/base, thus inheriting doguctl, bash and other tools.
+`official/java` is based on `official/base`, thus inheriting _doguctl_, _bash_ and other tools.
 
 ## how to build
 
-    make build
+Detailed instructions for building and releasing the base image can be found in [container_building.en.md](docs/container_building_en.md).
 
+NOTE: For Java _major_, _minor_ and _update_ version and the _change counter_, see _JAVA_VERSION_, _JAVA_ALPINE_VERSION_ and _CHANGE_COUNTER_ in Makefile.
 
-NOTE: _java major version_ and _java minor/update version_ see ENV statement in Dockerfile
+## Why are there branches called `javaXX`?
 
-NOTE: _java major version_, _java minor/update version_ and _cloudogu revision_ should be mentioned on the first line in Dockerfile
+Some Dogus need older Java version as their bases, therefore, a set of base Dogus with older Java versions must be maintained in addition to the latest stable Java version.
 
----
 ## What is the Cloudogu EcoSystem?
 The Cloudogu EcoSystem is an open platform, which lets you choose how and where your team creates great software. Each service or tool is delivered as a Dogu, a Docker container. Each Dogu can easily be integrated in your environment just by pulling it from our registry.
 
