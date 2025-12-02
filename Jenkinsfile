@@ -80,10 +80,9 @@ timestamps {
             final String currentBranch = sh(returnStdout: true, script: "git branch --show-current").trim()
             stage('Validate tag') {
                 if (!git.originTagExists(currentTag)) {
-                    final String imageTag = "v${imageVersion}"
-                    println("Creating missing tag: ${imageTag}")
-                    git.setTag(imageTag, "Release ${imageTag}", 'sos-automat', 'sos@cloudogu.com')
-                    git.push(imageTag)
+                    println("Creating missing tag: ${imageVersion}")
+                    git.setTag(imageVersion, "Release ${imageVersion}", 'sos-automat', 'sos@cloudogu.com')
+                    git.push(imageVersion)
                 }
             }
             stage('Publish release') {
