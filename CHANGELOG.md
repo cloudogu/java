@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [21.0.9-3] - 2025-12-11
+### Changed
+- Update Java keystore certificates path
+
 ## [21.0.9-2] - 2025-12-10
 ### Changed
 - Upgrade base-image to 3.23.0-1
