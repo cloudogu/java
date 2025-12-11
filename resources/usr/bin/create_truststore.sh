@@ -64,7 +64,7 @@ function importAdditionalCertificates() {
 
     importCertificate "${certAlias}" "${certFile}"
 
-    rm "${certFile}"
+    rm -f "${certFile}"
   done
 }
 
@@ -76,10 +76,9 @@ function importCertificate() {
       -import -file "${certFile}" -noprompt
 }
 
-
 function run_main() {
   STORE="${1:-$DIRECTORY/truststore.jks}"
-  create 2> /dev/null
+  create
   echo "-Djavax.net.ssl.trustStore=${STORE} -Djavax.net.ssl.trustStorePassword=${STOREPASS}"
 }
 
