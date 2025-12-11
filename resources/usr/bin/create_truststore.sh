@@ -37,7 +37,7 @@ function create(){
 }
 
 function prepareJavaKeystore() {
-  cp "${JAVA_HOME}/jre/lib/security/cacerts" "${STORE}"
+  cp "${DIRECTORY}/certs/java/cacerts" "${STORE}"
   # cacerts keystore is readonly in alpine package
   chmod 644 "${STORE}"
 }
