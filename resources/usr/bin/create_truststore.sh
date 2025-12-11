@@ -18,9 +18,7 @@ fi
 
 function create(){
   # create ssl directory
-  if [[ ! -d "$DIRECTORY" ]]; then
-    mkdir "$DIRECTORY"
-  fi
+  mkdir -p "$DIRECTORY"
 
   CERTIFICATE="$(mktemp)"
 
