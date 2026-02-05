@@ -11,18 +11,24 @@ load '/workspace/target/bats_libs/bats-file/load.bash'
 setup() {
   export STARTUP_DIR=/workspace/
 
+  export MOCK_SSL_DIR="${BATS_TMPDIR}/etc/ssl"
+  mkdir -p "${MOCK_SSL_DIR}/certs/java"
+  echo "mock-base-cacerts" > "${MOCK_SSL_DIR}/certs/java/cacerts"
+  export DIRECTORY="${MOCK_SSL_DIR}"
+
   # bats-mock/mock_create needs to be injected into the path so the production code will find the mock
   doguctl="$(mock_create)"
   export doguctl
   ln -s "${doguctl}" "${BATS_TMPDIR}/doguctl"
+
   keytool="$(mock_create)"
   export keytool
-  export PATH="${PATH}:${BATS_TMPDIR}"
+  export PATH="${BATS_TMPDIR}:${PATH}"
   ln -s "${keytool}" "${BATS_TMPDIR}/keytool"
   mockTruststore="$(mktemp)"
   export mockTruststore
-  BATSLIB_FILE_PATH_REM="#${TEST_TEMP_DIR}"
-  BATSLIB_FILE_PATH_ADD='<temp>'
+  export BATSLIB_FILE_PATH_REM="${BATS_TMPDIR}"
+  export BATSLIB_FILE_PATH_ADD='<temp>'
 }
 
 teardown() {

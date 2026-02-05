@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-DIRECTORY="/etc/ssl"
+DIRECTORY="${DIRECTORY:-/etc/ssl}"
 STORE=""
 STOREPASS="changeit"
 CERTALIAS="ces"
