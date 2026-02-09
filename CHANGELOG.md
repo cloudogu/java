@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [21.0.10-2] - 2026-02-05
 ### Changed
-- Upgrade base-image to 3.23.3-2
+- [#88] Upgrade base-image to 3.23.3-2
 
 ## [21.0.10-1] - 2025-12-11
 ### Changed
+- Upgrade base-image to 3.23.3-1
 - Upgrade Java to 21.0.10_p7-r0
 
 ## [21.0.9-3] - 2025-12-11
