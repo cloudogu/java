@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [8.452.09-3] - 2026-02-12
+### Security
+- [#91] Upgrade base-image to 3.23.3-3
+    - [#91] Update doguctl to v0.15.0 to fix [CVE-2025-61732](https://avd.aquasec.com/nvd/2026/CVE-2025-61732) and [CVE-2025-68121](https://avd.aquasec.com/nvd/2026/CVE-2025-68121).
+
 ## [8.452.09-2] - 2025-12-10
 ### Changed
 - Upgrade base-image to 3.23.0-1
