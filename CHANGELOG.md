@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [11.0.30-2] - 2026-02-12
+### Security
+- [#91] Upgrade base-image to 3.23.3-3
+    - [#91] Update doguctl to v0.15.0 to fix [CVE-2025-61732](https://avd.aquasec.com/nvd/2026/CVE-2025-61732) and [CVE-2025-68121](https://avd.aquasec.com/nvd/2026/CVE-2025-68121).
+
 ## [11.0.30-1] - 2026-02-02
 ### Changed
 - Upgrade Java to 11.0.30_p7-r0
