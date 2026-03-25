@@ -10,11 +10,11 @@ ENV \
   # default to utf-8 encoding
   LANG="C.UTF-8" \
   # java home
-  JAVA_HOME="/usr/lib/jvm/java-21-openjdk" \
+  JAVA_HOME="/usr/lib/jvm/java-25-openjdk" \
   # add java binaries to path
-  PATH="$PATH:/usr/lib/jvm/java-21-openjdk/jre/bin:/usr/lib/jvm/java-21-openjdk/bin"
+  PATH="$PATH:/usr/lib/jvm/java-25-openjdk/jre/bin:/usr/lib/jvm/java-25-openjdk/bin"
 
 RUN set -x \
- && apk add --no-cache openjdk21="${JAVA_ALPINE_VERSION}"
+ && apk add --no-cache openjdk25="${JAVA_ALPINE_VERSION}"
 
 COPY resources/ /
