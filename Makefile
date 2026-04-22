@@ -5,7 +5,7 @@ JAVA_ALPINE_VERSION=25.0.2_p10-r1
 IMAGE_NAME=registry.cloudogu.com/official/java
 IMAGE_NAME_PRERELEASE=registry.cloudogu.com/prerelease_official/java
 IMAGE_TAG=$(JAVA_VERSION)-$(CHANGE_COUNTER)
-MAKEFILES_VERSION=10.6.1
+MAKEFILES_VERSION=10.9.0
 
 default: build
 
