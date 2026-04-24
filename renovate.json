@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "baseBranchPatterns": [
+    "java8",
+    "java11",
+    "java17",
+    "java21",
+    "java25"
+  ],
+  "ignorePaths": [
+    "/build/**"
+  ]
+}
