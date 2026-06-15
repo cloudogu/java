@@ -5,6 +5,7 @@ JAVA_ALPINE_VERSION=17.0.18_p8-r0
 IMAGE_NAME=registry.cloudogu.com/official/java
 IMAGE_NAME_PRERELEASE=registry.cloudogu.com/prerelease_official/java
 IMAGE_TAG=$(JAVA_VERSION)-$(CHANGE_COUNTER)
+# renovate: datasource=github-tags depName=cloudogu/makefiles extractVersion=^v(?<version>.*)$
 MAKEFILES_VERSION=10.9.0
 
 default: build
