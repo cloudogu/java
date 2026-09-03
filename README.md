@@ -5,11 +5,9 @@
 
 `official/java` is based on `official/base`, thus inheriting _doguctl_, _bash_ and other tools.
 
-## how to build
+## Build & Release
 
-Detailed instructions for building and releasing the base image can be found in [container_building.en.md](docs/container_building_en.md).
-
-NOTE: For Java _major_, _minor_ and _update_ version and the _change counter_, see _JAVA_VERSION_, _JAVA_ALPINE_VERSION_ and _CHANGE_COUNTER_ in Makefile.
+Detailed instructions for building and releasing the base image can be found in [build_release_en.md](docs/build_release_en.md).
 
 ## Why are there branches called `javaXX`?
 
