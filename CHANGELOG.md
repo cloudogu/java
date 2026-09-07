@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [17.0.20-1] - 2026-09-07
 ### Changed
 - Upgrade OpenJDK to v17.0.20
-- Upgrade base-image to v3.24.1-1
+- Upgrade base-image to v3.24.1-3
 
 ## [17.0.19-2] - 2026-06-24
 ### Changed
