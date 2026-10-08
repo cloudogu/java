@@ -95,7 +95,15 @@ timestamps {
                     sh "make deploy"
                     sh "docker logout registry.cloudogu.com"
                 }
-                github.createReleaseWithChangelog("${imageVersion}", changelog, currentBranch)
+                // createReleaseWithChangelog takes only the changelog. Build the body here to put the image path on top.
+                // changesForVersion returns JSON-escaped text, so newlines are written as \\n here as well.
+                try {
+                    String body = "```\\n${imageName}:${imageVersion}\\n```\\n\\n" + changelog.changesForVersion(imageVersion)
+                    github.createRelease(imageVersion, body, currentBranch)
+                } catch (IllegalArgumentException e) {
+                    unstable("Release failed due to error: ${e}")
+                    echo 'Please manually update github release.'
+                }
             }
             stage('Notify Webhook') {
                 try {
