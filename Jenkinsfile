@@ -2,6 +2,7 @@
 @Library(['github.com/cloudogu/ces-build-lib@4.3.0', 'github.com/cloudogu/dogu-build-lib@v3.4.2'])
 import com.cloudogu.ces.cesbuildlib.*
 import com.cloudogu.ces.dogubuildlib.*
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 
 timestamps {
     node('sos') {
@@ -62,68 +63,80 @@ timestamps {
             trivy.saveFormattedTrivyReport(TrivyScanFormat.HTML)
         }
 
-        if (params.PublishPrerelease) {
-            stage('Publish prerelease') {
-                withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                                  credentialsId   : "harborrobotprerelease",
-                                  usernameVariable: 'TOKEN_ID',
-                                  passwordVariable: 'TOKEN_SECRET']]) {
-                    sh "docker login -u ${escapeToken(env.TOKEN_ID)} -p ${escapeToken(env.TOKEN_SECRET)} registry.cloudogu.com"
-                    sh "make deploy-prerelease"
-                    sh "docker logout registry.cloudogu.com"
-                }
+        stage('Publish prerelease') {
+            if (!params.PublishPrerelease) {
+                Utils.markStageSkippedForConditional(STAGE_NAME)
+                return
+            }
+            withCredentials([[$class          : 'UsernamePasswordMultiBinding',
+                              credentialsId   : "harborrobotprerelease",
+                              usernameVariable: 'TOKEN_ID',
+                              passwordVariable: 'TOKEN_SECRET']]) {
+                sh "docker login -u ${escapeToken(env.TOKEN_ID)} -p ${escapeToken(env.TOKEN_SECRET)} registry.cloudogu.com"
+                sh "make deploy-prerelease"
+                sh "docker logout registry.cloudogu.com"
             }
         }
 
-        if (params.PublishRelease) {
-            final String currentTag = sh(returnStdout: true, script: "git tag --points-at HEAD").trim()
-            final String currentBranch = sh(returnStdout: true, script: "git branch --show-current").trim()
-            stage('Validate tag') {
-                if (!git.originTagExists(currentTag)) {
-                    println("Creating missing tag: ${imageVersion}")
-                    git.setTag(imageVersion, "Release ${imageVersion}", 'sos-automat', 'sos@cloudogu.com')
-                    git.push(imageVersion)
-                }
+        final String currentTag = sh(returnStdout: true, script: "git tag --points-at HEAD").trim()
+        final String currentBranch = sh(returnStdout: true, script: "git branch --show-current").trim()
+        stage('Validate tag') {
+            if (!params.PublishRelease) {
+                Utils.markStageSkippedForConditional(STAGE_NAME)
+                return
             }
-            stage('Publish release') {
-                println("Publishing release at tag: ${currentTag}")
-                withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                                  credentialsId   : "cesmarvin-setup",
-                                  usernameVariable: 'TOKEN_ID',
-                                  passwordVariable: 'TOKEN_SECRET']]) {
-                    sh "docker login -u ${escapeToken(env.TOKEN_ID)} -p ${escapeToken(env.TOKEN_SECRET)} registry.cloudogu.com"
-                    sh "make deploy"
-                    sh "docker logout registry.cloudogu.com"
-                }
-                // createReleaseWithChangelog takes only the changelog. Build the body here to put the image path on top.
-                // changesForVersion returns JSON-escaped text, so newlines are written as \\n here as well.
-                try {
-                    String body = "```\\n${imageName}:${imageVersion}\\n```\\n\\n" + changelog.changesForVersion(imageVersion)
-                    github.createRelease(imageVersion, body, currentBranch)
-                } catch (IllegalArgumentException e) {
-                    unstable("Release failed due to error: ${e}")
-                    echo 'Please manually update github release.'
-                }
+            if (!git.originTagExists(currentTag)) {
+                println("Creating missing tag: ${imageVersion}")
+                git.setTag(imageVersion, "Release ${imageVersion}", 'sos-automat', 'sos@cloudogu.com')
+                git.push(imageVersion)
             }
-            stage('Notify Webhook') {
-                try {
-                    withCredentials([string(credentialsId: 'sos-sw-release-webhook-url', variable: 'webhookUrl')]) {
-                        def response = httpRequest(
-                                httpMode: 'POST',
-                                contentType: 'APPLICATION_JSON',
-                                requestBody: groovy.json.JsonOutput.toJson([text: """\
-                                    *New Dogu Release*
-                                    • Project: *<https://github.com/cloudogu/java|base-java>*
-                                    • Version: *${imageVersion}*
-                                    • <https://github.com/cloudogu/java/releases/tag/${imageVersion}|View Changelog>
-                                    """.stripIndent()]),
-                                url: env.webhookUrl
-                        )
-                        echo "Notification sent to Google Chat: ${response.status} ${response.content}"
-                    }
-                } catch (Exception notifyError) {
-                    unstable("Failed to send notification to Google Chat: ${notifyError.getMessage()}")
+        }
+        stage('Publish release') {
+            if (!params.PublishRelease) {
+                Utils.markStageSkippedForConditional(STAGE_NAME)
+                return
+            }
+            println("Publishing release at tag: ${currentTag}")
+            withCredentials([[$class          : 'UsernamePasswordMultiBinding',
+                              credentialsId   : "cesmarvin-setup",
+                              usernameVariable: 'TOKEN_ID',
+                              passwordVariable: 'TOKEN_SECRET']]) {
+                sh "docker login -u ${escapeToken(env.TOKEN_ID)} -p ${escapeToken(env.TOKEN_SECRET)} registry.cloudogu.com"
+                sh "make deploy"
+                sh "docker logout registry.cloudogu.com"
+            }
+            // createReleaseWithChangelog takes only the changelog. Build the body here to put the image path on top.
+            // changesForVersion returns JSON-escaped text, so newlines are written as \\n here as well.
+            try {
+                String body = "```\\n${imageName}:${imageVersion}\\n```\\n\\n" + changelog.changesForVersion(imageVersion)
+                github.createRelease(imageVersion, body, currentBranch)
+            } catch (IllegalArgumentException e) {
+                unstable("Release failed due to error: ${e}")
+                echo 'Please manually update github release.'
+            }
+        }
+        stage('Notify Webhook') {
+            if (!params.PublishRelease) {
+                Utils.markStageSkippedForConditional(STAGE_NAME)
+                return
+            }
+            try {
+                withCredentials([string(credentialsId: 'sos-sw-release-webhook-url', variable: 'webhookUrl')]) {
+                    def response = httpRequest(
+                            httpMode: 'POST',
+                            contentType: 'APPLICATION_JSON',
+                            requestBody: groovy.json.JsonOutput.toJson([text: """\
+                                *New Dogu Release*
+                                • Project: *<https://github.com/cloudogu/java|base-java>*
+                                • Version: *${imageVersion}*
+                                • <https://github.com/cloudogu/java/releases/tag/${imageVersion}|View Changelog>
+                                """.stripIndent()]),
+                            url: env.webhookUrl
+                    )
+                    echo "Notification sent to Google Chat: ${response.status} ${response.content}"
                 }
+            } catch (Exception notifyError) {
+                unstable("Failed to send notification to Google Chat: ${notifyError.getMessage()}")
             }
         }
 
