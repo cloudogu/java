@@ -5,9 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [25.0.4-5] - 2026-10-21
 ### Changed
 - Update base-image to 3.24.2-4
-- Update Makefiles to v11.1.2
+- Update makefiles to v11.1.2
 - Update ces-build-lib to 6.0.0
 - Update dogu-build-lib to v4.1.0
 ### Security
