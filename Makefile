@@ -1,6 +1,6 @@
 JAVA_VERSION=8.492.09
 CHANGE_COUNTER=4
-BASE_IMAGE_VERSION=3.24.2-4
+BASE_IMAGE_VERSION=3.24.3-1
 JAVA_ALPINE_VERSION=8.492.09-r0
 IMAGE_NAME=registry.cloudogu.com/official/java
 IMAGE_NAME_PRERELEASE=registry.cloudogu.com/prerelease_official/java
