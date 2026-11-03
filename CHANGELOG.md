@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update ces-build-lib to 6.1.0
 - Update dogu-build-lib to v4.2.0
 - Send the release notification with `Webhook.notifyRelease()` from dogu-build-lib
+- Run the pipeline on `cpu2mem4` workers
 
 ## [17.0.20-5] - 2026-10-22
 ### Changed
