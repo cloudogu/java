@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [21.0.13-1] - 2026-11-03
 ### Changed
 - Upgrade OpenJDK to v21.0.13
 - Update base-image to 3.24.3-2 to get doguctl version 0.17.2
