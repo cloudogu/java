@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Upgrade OpenJDK to v21.0.13
+- Update base-image to 3.24.3-2 to get doguctl version 0.17.2
 
 ## [21.0.12-5] - 2026-10-22
 ### Changed
