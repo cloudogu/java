@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update makefiles to v11.2.0
 - Update ces-build-lib to 6.1.0
 - Update dogu-build-lib to v4.2.0
+- Send the release notification with `Webhook.notifyRelease()` from dogu-build-lib
 
 ## [11.0.32-5] - 2026-10-22
 ### Changed
