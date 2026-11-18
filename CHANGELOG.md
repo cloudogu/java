@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [21.0.13-3] - 2026-11-18
 ### Security
 - Update OpenJDK to v21.0.13.1 to fix Java4Shell (CVE-2026-114938)
 
