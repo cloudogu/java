@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Upgrade OpenJDK to v8.512.01
+- Update base-image to 3.24.4-1 to get Alpine 3.24.4
 
 ## [8.492.09-6] - 2026-11-03
 ### Changed
