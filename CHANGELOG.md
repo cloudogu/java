@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [25.0.5-3] - 2026-11-18
 ### Changed
 - Update base-image to 3.24.4-1 to get Alpine 3.24.4
 - Update makefiles to v11.2.1
